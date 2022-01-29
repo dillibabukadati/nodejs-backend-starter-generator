@@ -1,0 +1,28 @@
+{
+  "swaggerDefinition": {
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Customer API",
+      "declaration": "Customer api end point information",
+      "contact": {
+        "name": "Amazing developer"
+      },
+      "servers": ["http://localhost:3000"]
+    },
+    "components": {
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ]
+  },
+  "apis": ["./routes/*.js"]
+}

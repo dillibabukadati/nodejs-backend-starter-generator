@@ -1,0 +1,15 @@
+{
+    "db": {
+        "host": "localhost",
+        "database": "test",
+        "userName": "root",
+        "password": "Dilli@babu777"
+    },
+    "app": {
+        "port": 3000,
+        "logBasePage": "/tmp"
+    },
+    "jwt": {
+        "secret": "nd1UouaPdlZe8K5b55Y/6/6UikGzGDirkySt62BJtO+rLcvYyEbDdhQW18OuUXh3DanjKTDcp8HMGKa0pt6P0APdLW9WAHo+3GMK+Z0cFr+uK2Ji0M6bA3kJTH0lO0rrkOTCPJcBKEbL8RutPiZf1+l0pi2ZVXyXtlKjBGHvY3nRO0sX93/+fhyh3uCiwpDX9AD2/Nh74BmWjtKo3ewzn7AthGQ4QZtJOaZ99VlLFzrcLptb6xdmclmG4Nx/kFIpdvY3YikzRQ9/v3+d1OcOVwcFGRLGN03xa3EGK0XwBCyurUGO2N/JHBeZVOlwFRCGV12tvzScqP4zb/9xXN8gMA=="
+    }
+}

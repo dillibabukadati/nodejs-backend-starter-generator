@@ -1,0 +1,9 @@
+{
+  "name": "node-generator",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "bin": {
+    "node-generator": "./index.js"
+  }
+}
