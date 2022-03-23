@@ -29,7 +29,21 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 
 app.use(express.json());
 app.use(morgan("combined", { stream: accessLogStream }));
-app.options("*", cors());
+app.use(
+  cors({
+    origin: true,
+    optionsSuccessStatus: 200,
+    credentials: true,
+  })
+);
+app.options(
+  "*",
+  cors({
+    origin: true,
+    optionsSuccessStatus: 200,
+    credentials: true,
+  })
+);
 app.use(baseRoutes);
 app.use(authRoutes);
 
