@@ -15,6 +15,30 @@ const { checkForErrors } = require("../utils/validation-errors-checker");
  *          type: string
  *       user:
  *          type: object
+ *          properties:
+ *            userId:
+ *              type: string
+ *            name:
+ *              type: string
+ *            email:
+ *              type: string
+ *            updatedAt:
+ *              type: string
+ *            createdAt:
+ *              type: string
+ *            lastLogin:
+ *              type: string
+ *            accessToken:
+ *              type: string
+ *            userRoles:
+ *              type: string
+ * 
+ *   ErrorResponse:
+ *     properties: 
+ *      status: 
+ *        type: integer
+ *      message: 
+ *        type: string
  */
 
 /**
@@ -27,6 +51,8 @@ const { checkForErrors } = require("../utils/validation-errors-checker");
  *       email:
  *          type: string
  *       password:
+ *          type: string
+ *       phoneNumber:
  *          type: string
  */
 
@@ -46,7 +72,7 @@ const { checkForErrors } = require("../utils/validation-errors-checker");
  * /login:
  *    post:
  *      tags:
- *        - login and registration
+ *        - Login and Registration
  *      summary: API used to login the user. Once user is successfully loggedin,
  *               an accessToken along with user other details will be returned.
  *               The access token will be used in the Bearer Authtoken
@@ -60,9 +86,17 @@ const { checkForErrors } = require("../utils/validation-errors-checker");
  *
  *      responses:
  *          200:
- *              description: returns user object with accessToken
- *              schema:
- *                 $ref: '#/definitions/LoginResponse'
+ *              description: returns Base response
+ *              content:
+ *                  'application/json':
+ *                     schema:
+ *                        $ref: '#/definitions/LoginResponse'
+ *          400:
+ *              description: returns Error Response with comma separated message if there are multiple errors.
+ *              content:
+ *                  'application/json':
+ *                     schema:
+ *                        $ref: '#/definitions/ErrorResponse'
  *
  */
 router.post(
@@ -75,12 +109,13 @@ router.post(
   authController.login
 );
 
+
 /**
  * @swagger
  * /register:
  *    post:
  *      tags:
- *        - login and registration
+ *        - Login and Registration
  *      summary: API used to register a user. Once user is successfully registered,
  *               an accessToken along with user other details will be returned.
  *               The access token will be used in the Bearer Authtoken
@@ -91,13 +126,19 @@ router.post(
  *          application/json:
  *            schema:
  *              $ref: '#/definitions/RegisterRequest'
- *
  *      responses:
  *          200:
- *              description: returns user object with accessToken
- *              schema:
- *                 $ref: '#/definitions/LoginResponse'
- *
+ *              description: return success response with user object.
+ *              content:
+ *                  'application/json':
+ *                     schema:
+ *                        $ref: '#/definitions/LoginResponse'
+ *          400:
+ *              description: returns Error Response with comma separated message if there are multiple errors.
+ *              content:
+ *                  'application/json':
+ *                     schema:
+ *                        $ref: '#/definitions/ErrorResponse'
  */
 router.post(
   "/register",

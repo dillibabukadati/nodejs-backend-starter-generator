@@ -54,7 +54,7 @@ app.use("", [validateAuthorization(), userRoutes]);
 app.use("/admin", [validateAuthorization("ADMIN"), adminRoutes]);
 // { alter: true }
 sequelize
-  .sync()
+  .sync({ alter: true })
   .then((res) => {
     app.listen(APP_PORT ? APP_PORT : 3000);
   })
