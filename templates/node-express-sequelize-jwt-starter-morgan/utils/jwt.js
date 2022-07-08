@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = require('./config')
 
 exports.generateJwtToken = (user) => {
 
@@ -7,12 +6,12 @@ exports.generateJwtToken = (user) => {
     return jwt.sign({
         exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 30),
         userId: user.userId
-    }, JWT_SECRET, { algorithm: 'HS256' });
+    }, process.env.JWT_SECRET, { algorithm: 'HS256' });
 
 }
 exports.validateToken = (token) => {
     try {
-        const isValid = jwt.verify(token, JWT_SECRET, { algorithm: 'HS256' });
+        const isValid = jwt.verify(token, process.env.JWT_SECRET, { algorithm: 'HS256' });
         return isValid;
     } catch (error) {
         console.error('Invalid token');
