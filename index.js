@@ -132,19 +132,24 @@ function updatePackageJson(projectPath) {
 }
 
 function updateConfigFile(projectPath) {
-  const filePath = `${projectPath}/config.json`;
-  const file = require(filePath);
+  const filePath = `${projectPath}/.env`;
+  // const file = require(filePath);
 
   const jwtSecret = require("crypto").randomBytes(256).toString("base64");
-  file.db.host = dbHost;
-  file.db.database = database;
-  file.db.userName = dbUserName;
-  file.db.password = dbPassword;
-  file.jwt.secret = jwtSecret;
-
-  fs.writeFile(filePath, JSON.stringify(file), function writeJSON(err) {
-    if (err) return console.log(err);
-  });
+  let DB_HOST = `DB_HOST=${dbHost}`;
+  let DB_DATABASE = `DB_DATABASE=${database}`;
+  let DB_USER_NAME = `DB_USER_NAME=${dbUserName}`;
+  let DB_PASSWORD = `DB_PASSWORD=${dbPassword}`;
+  let APP_PORT = `APP_PORT=3000`;
+  let JWT_SECRET = `JWT_SECRET=${jwtSecret}`;
+  let LOG_BASE_PATH = `LOG_BASE_PATH=/tmp`;
+  fs.appendFileSync(filePath, DB_HOST + "\n");
+  fs.appendFileSync(filePath, DB_DATABASE + "\n");
+  fs.appendFileSync(filePath, DB_USER_NAME + "\n");
+  fs.appendFileSync(filePath, DB_PASSWORD + "\n");
+  fs.appendFileSync(filePath, APP_PORT + "\n");
+  fs.appendFileSync(filePath, JWT_SECRET + "\n");
+  fs.appendFileSync(filePath, LOG_BASE_PATH + "\n");
 }
 function updateSwaggerOptions(projectPath) {
   const filePath = `${projectPath}/utils/swagger-options.json`;
