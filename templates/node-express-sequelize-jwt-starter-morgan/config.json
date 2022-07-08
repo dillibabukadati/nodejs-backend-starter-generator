@@ -3,7 +3,7 @@
         "host": "localhost",
         "database": "test",
         "userName": "root",
-        "password": "Dilli@babu777"
+        "password": ""
     },
     "app": {
         "port": 3000,

@@ -3,9 +3,10 @@ const jwt = require("../utils/jwt");
 const User = require("../models/user-model");
 const UserRoles = require("../models/user-roles");
 const { body, validationResult } = require("express-validator");
-const { error } = require("../utils/logger");
+const { error,logger} = require("../utils/logger");
 
 exports.login = async (req, res) => {
+  logger.info("logging the user")
   const payload = req.body;
   const fethedUser = await User.findOne({
     where: { email: payload.email },
