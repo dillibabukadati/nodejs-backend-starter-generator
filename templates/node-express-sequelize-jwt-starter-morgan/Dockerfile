@@ -10,7 +10,6 @@ RUN npm install
 # RUN npm ci --only=production
 
 COPY . .
-EXPOSE 3000
 
 # installing pm2 to host nodejs 
 RUN npm install pm2 -g
