@@ -1,5 +1,6 @@
 {
 "version":"1.0.0",
+"author": "Dilli Babu Kadati",
   "name": "node-generator",
   "dependencies": {
     "inquirer": "^8.2.0"
