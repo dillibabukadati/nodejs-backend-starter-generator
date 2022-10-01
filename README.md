@@ -17,7 +17,7 @@ Node Generator is created to skip the initial setup process of Nodejs. It includ
 
 Node Generator requires [Node.js](https://nodejs.org/) v10+ to run.
 
-Clone Install the dependencies.
+Clone and Install the dependencies.
 
 ```sh
 git clone https://github.com/dillibk777/nodejs-backend-starter-generator.git
