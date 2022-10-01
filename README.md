@@ -13,15 +13,11 @@ Node Generator is created to skip the initial setup process of Nodejs. It includ
 - Logging: Morgan, Winston
 
 
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
-
 ## Installation
 
 Node Generator requires [Node.js](https://nodejs.org/) v10+ to run.
 
-Install the dependencies and devDependencies and start the server.
+Clone Install the dependencies.
 
 ```sh
 git clone https://github.com/dillibk777/nodejs-backend-starter-generator.git
