@@ -4,7 +4,7 @@ Node Generator is created to skip the initial setup process of Nodejs. It includ
 
 ## Features
 
-- Zero Vulnerabilites of dependencies
+- Zero Vulnerabilities of dependencies
 - Docker
 - ExpressJs
 - Database: MySQL Sequelize
