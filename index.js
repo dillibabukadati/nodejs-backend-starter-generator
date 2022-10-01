@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 const inquirer = require("inquirer");
+const figlet = require("figlet");
 const fs = require("fs");
+
+
 const CURR_DIR = process.cwd();
 const CHOICES = fs
   .readdirSync(`${__dirname}/templates`)
@@ -70,9 +73,15 @@ const QUESTIONS = [
   },
 ];
 
-// inquirer.prompt(QUESTIONS).then((answers) => {
-//   console.log(answers);
-// });
+console.log(figlet.textSync('Node Generator', {
+  font:'Standard',
+  horizontalLayout: 'default',
+  verticalLayout: 'default',
+  width: 80,
+  whitespaceBreak: true
+}));
+console.log('Powered by Dilli Babu Kadati @dillibk777\n\n')
+
 
 inquirer.prompt(QUESTIONS).then((answers) => {
   const projectChoice = answers["project-choice"];
@@ -92,6 +101,7 @@ inquirer.prompt(QUESTIONS).then((answers) => {
   createDirectoryContents(templatePath, projectName);
   updateConfigFilesOfProject(`${CURR_DIR}/${projectName}`);
 });
+
 
 function createDirectoryContents(templatePath, newProjectPath) {
   const filesToCreate = fs.readdirSync(templatePath);
