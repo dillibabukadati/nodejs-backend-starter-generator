@@ -34,3 +34,6 @@ Use arrow keys to select the required template and press enter as shown below im
 ![](https://user-images.githubusercontent.com/29474650/193395787-8713983b-2b9f-4731-b295-1b527fad06cd.png)
 Enter the correct details and the projected will be generated.
 ![](https://user-images.githubusercontent.com/29474650/193385976-a863c310-a5a9-444a-a5ef-9c8250a79e95.png)
+
+## Buy me Coffee
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/dillibabukadati)
