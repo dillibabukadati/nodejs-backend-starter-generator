@@ -4,7 +4,6 @@ const inquirer = require("inquirer");
 const figlet = require("figlet");
 const fs = require("fs");
 
-
 const CURR_DIR = process.cwd();
 const CHOICES = fs
   .readdirSync(`${__dirname}/templates`)
@@ -73,15 +72,16 @@ const QUESTIONS = [
   },
 ];
 
-console.log(figlet.textSync('Node Generator', {
-  font:'Standard',
-  horizontalLayout: 'default',
-  verticalLayout: 'default',
-  width: 80,
-  whitespaceBreak: true
-}));
-console.log('Powered by Dilli Babu Kadati @dillibk777\n\n')
-
+console.log(
+  figlet.textSync("Node Generator", {
+    font: "Standard",
+    horizontalLayout: "default",
+    verticalLayout: "default",
+    width: 80,
+    whitespaceBreak: true,
+  })
+);
+console.log("Powered by Dilli Babu Kadati @dillibk777\n\n");
 
 inquirer.prompt(QUESTIONS).then((answers) => {
   const projectChoice = answers["project-choice"];
@@ -101,7 +101,6 @@ inquirer.prompt(QUESTIONS).then((answers) => {
   createDirectoryContents(templatePath, projectName);
   updateConfigFilesOfProject(`${CURR_DIR}/${projectName}`);
 });
-
 
 function createDirectoryContents(templatePath, newProjectPath) {
   const filesToCreate = fs.readdirSync(templatePath);
@@ -162,16 +161,20 @@ function updateConfigFile(projectPath) {
   fs.appendFileSync(filePath, LOG_BASE_PATH + "\n");
 }
 function updateSwaggerOptions(projectPath) {
-  const filePath = `${projectPath}/utils/swagger-options.json`;
-  const file = require(filePath);
+  try {
+    const filePath = `${projectPath}/utils/swagger-options.json`;
+    const file = require(filePath);
 
-  file.swaggerDefinition.info.title = projectName;
-  file.swaggerDefinition.info.declaration = description;
-  file.swaggerDefinition.info.contact.name = author;
+    file.swaggerDefinition.info.title = projectName;
+    file.swaggerDefinition.info.declaration = description;
+    file.swaggerDefinition.info.contact.name = author;
 
-  fs.writeFile(filePath, JSON.stringify(file), function writeJSON(err) {
-    if (err) return console.log(err);
-  });
+    fs.writeFile(filePath, JSON.stringify(file), function writeJSON(err) {
+      if (err) return console.log(err);
+    });
+  } catch (err) {
+    console.log("Swagger not available");
+  }
 }
 function updateConfigFilesOfProject(projectPath) {
   // updating package.json file
